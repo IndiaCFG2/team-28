@@ -24,3 +24,6 @@ def knowledge(request):
 
 def knowledgehubpost(request):
 	return render(request,'knowledgehubpost.html')
+
+def contact(request):
+	return render(request,'contact-us.html')
