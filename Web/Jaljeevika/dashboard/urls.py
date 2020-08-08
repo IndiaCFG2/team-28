@@ -15,9 +15,5 @@ urlpatterns = [
 	url(r'^contact/$',views.contact,name='contact'),
 
 	url(r'^$',views.about,name='about'),
-	
-	
-	
-	
 
 ]
