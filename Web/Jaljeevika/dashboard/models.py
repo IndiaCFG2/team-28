@@ -1,3 +1,4 @@
+
 from django.db import models
 import datetime
 from django.contrib.postgres.fields import ArrayField
@@ -46,8 +47,6 @@ class fpoproduct(models.Model):
 	quantity=models.CharField(max_length=200, default='')
 	price=models.IntegerField(default=0)
 	fid= models.ForeignKey(FPO, on_delete=models.CASCADE)
-
-
 
 
 
