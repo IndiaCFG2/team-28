@@ -8,12 +8,13 @@ urlpatterns = [
 	url(r'^marketview/$',views.marketview,name='marketview'),
 	url(r'^fpodashboard/$',views.fpodashboard,name='fpodashboard'),
 	url(r'^forum/$',views.forum,name='forum'),
-	url(r'^about/$',views.about,name='about'),
+	#url(r'^about/$',views.about,name='about'),
 	url(r'^knowledge/$',views.knowledge,name='knowledge'),
 	url(r'^gallery/$',views.gallery,name='gallery'),
 	url(r'^contact/$',views.contact,name='contact'),
 
-	url(r'^$',views.home,name='home'),
+	url(r'^$',views.about,name='about'),
+	
 	
 	
 	
