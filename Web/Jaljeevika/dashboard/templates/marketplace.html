@@ -1,0 +1,23 @@
+{%extends 'base.html'%}
+{% load static %}
+{%block title%}
+
+Products page
+{%endblock%}
+{%block main%}
+{% for i in products %}
+<div class="card" style="width: 18rem;">
+  <img  src="{{ i.res.url }}" >
+  <object class="card-img-top" data="{{ i.res }}" alt="Card image"></object>
+  <div class="card-body">
+    <h5 class="card-title">{{ i.productname }}</h5>
+    <p class="card-text">{{ i.description }}</p>
+    <p class="card-text">{{ i.quantity }}</p>
+    <p class="card-text">{{ i.price }}</p>
+    <p class="card-text">{{ i.fponame }}</p>
+  </div>
+</div>
+
+ {% endfor %}
+
+{%endblock%}
