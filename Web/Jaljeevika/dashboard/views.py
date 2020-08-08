@@ -18,6 +18,9 @@ def fpodashboard(request):
 def knowledge(request):
 	return render(request,'knowledge.html')
 
+def contact(request):
+	return render(request,'contact.html')
+
 def forum(request):
 	return render(request,'forum.html')
 

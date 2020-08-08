@@ -11,6 +11,7 @@ urlpatterns = [
 	url(r'^about/$',views.about,name='about'),
 	url(r'^knowledge/$',views.knowledge,name='knowledge'),
 	url(r'^gallery/$',views.gallery,name='gallery'),
+	url(r'^contact/$',views.contact,name='contact'),
 
 	url(r'^$',views.home,name='home'),
 	

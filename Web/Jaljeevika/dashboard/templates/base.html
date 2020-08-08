@@ -5,7 +5,7 @@
     <title>Givig - Non-profit Free Bootstrap 4 Template by Colorlib</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    
+    <title>{%block title%}{%endblock%}</title>
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500|Gaegu:700" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'css/open-iconic-bootstrap.min.css' %}">
     <link rel="stylesheet" href="{% static 'css/open-iconic-bootstrap.min.css' %}">
@@ -33,14 +33,14 @@
 
       <div class="collapse navbar-collapse" id="ftco-nav">
         <ul class="navbar-nav ml-auto">
-          <li class="nav-item active"><a href="" class="nav-link">Home</a></li>
-          <li class="nav-item active"><a href="{%url 'marketview'%}" class="nav-link">Products</a></li>
+          <li class="nav-item active"><a href="{%url 'home'%}" class="nav-link">Home</a></li>
+          <li class="nav-item "><a href="{%url 'marketview'%}" class="nav-link">Products</a></li>
           <li class="nav-item"><a href="{%url 'about'%}" class="nav-link">About</a></li>
           <li class="nav-item"><a href="{%url 'fpodashboard'%}" class="nav-link">FPO</a></li>
           <li class="nav-item"><a href="{%url 'knowledge'%}" class="nav-link">KnowledgeHub</a></li>
           <li class="nav-item"><a href="{%url 'gallery'%}" class="nav-link">Gallery</a></li>
-          <li class="nav-item"><a href="{%url 'gallery'%}" class="nav-link">Gallery</a></li>
-          <li class="nav-item"><a href="{%url 'Contact'%}" class="nav-link">Contact Us</a></li>
+          <li class="nav-item"><a href="{%url 'forum'%}" class="nav-link">Forum</a></li>
+          <li class="nav-item"><a href="{%url 'contact'%}" class="nav-link">Contact Us</a></li>
         </ul>
       </div>
     </div>
@@ -61,7 +61,8 @@
       
     </div>
   </div>
-  
+  {% block content%}
+{% endblock%}
 
   <div class="site-section">
     <div class="container">
@@ -199,7 +200,7 @@
 
             
             <div class="card fundraise-item">
-              <a href="#"><img class="card-img-top" src="{% static 'images/img_2.jpg %}" alt="Image placeholder"></a>
+              <a href="#"><img class="card-img-top" src="{% static 'images/img_2.jpg' %}" alt="Image placeholder"></a>
               <div class="card-body">
                 <h3 class="card-title"><a href="#">Children Needs Food</a></h3>
                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
