@@ -12,3 +12,4 @@ def render_forum(request):
 
 def render_marketplace(request):
 	return render(request,'marketplace.html')
+
