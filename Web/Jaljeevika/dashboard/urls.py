@@ -5,6 +5,7 @@ from . import views
 
 urlpatterns = [
 
+
 	url(r'^marketview/$',views.marketview,name='marketview'),
 	url(r'^fpodashboard/$',views.fpodashboard,name='fpodashboard'),
 	url(r'^forum/$',views.forum,name='forum'),
@@ -18,4 +19,5 @@ urlpatterns = [
 	
 	
 	
+
 ]
