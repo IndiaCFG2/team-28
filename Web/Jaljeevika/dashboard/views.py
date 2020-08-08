@@ -5,7 +5,7 @@ def index(request):
 	return render(request,'base.html')
 
 def fpodashboard(request):
-	return render(request,'fpodashboard.html')
+	return render(request,'index.html')
 
 def forum(request):
 	return render(request,'forum.html')
