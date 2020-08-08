@@ -1,0 +1,10 @@
+Team*.zip
+*.pem
+*.ppk
+*.crt
+*.key
+*.ovpn
+# django migrations
+**/migrations/**
+!**/migrations
+!**/migrations/__init__.py
