@@ -4,6 +4,7 @@ from django.urls import path,include,re_path
 from . import views
 
 urlpatterns = [
+	url(r'^$',views.index,name='jeljeevika'),
 	url(r'^fpodashboard/$',views.fpodashboard,name='fpodashboard'),
 	url(r'^forum/$',views.forum,name='forum'),
 	url(r'^about/$',views.about,name='about'),
