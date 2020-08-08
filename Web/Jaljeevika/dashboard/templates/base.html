@@ -6,6 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>{%block title%}{%endblock%}</title>
+    {%block head%}{%endblock%}
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500|Gaegu:700" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'css/open-iconic-bootstrap.min.css' %}">
     <link rel="stylesheet" href="{% static 'css/open-iconic-bootstrap.min.css' %}">
@@ -34,7 +35,7 @@
       <div class="collapse navbar-collapse" id="ftco-nav">
         <ul class="navbar-nav ml-auto">
 
-          <li class="nav-item active"><a href="{%url 'about'%}" class="nav-link">Home</a></li>
+          <li class="nav-item "><a href="{%url 'about'%}" class="nav-link">Home</a></li>
           <li class="nav-item "><a href="{%url 'marketview'%}" class="nav-link">Products</a></li>
           
           <li class="nav-item"><a href="{%url 'fpodashboard'%}" class="nav-link">FPO</a></li>
@@ -44,9 +45,10 @@
 
           <li class="nav-item"><a href="{%url 'contact'%}" class="nav-link">Contact Us</a></li>
 
-          <li class="nav-item"><a class="btn btn-primary" href="{%url 'forminput'%}" role="button">Link</a></li>
+          
 
         </ul>
+        <a class="btn btn-primary" href="{%url 'forminput'%}" role="button">Add Product</a>
       </div>
     </div>
   </nav>

@@ -1,5 +1,5 @@
 from django import forms
-from .models import fpoproduct
+from .models import fpoproduct,FPO
 
 
 class ProductForm(forms.ModelForm):
@@ -39,12 +39,14 @@ class ProductForm(forms.ModelForm):
             'placeholder': 'Enter the end date...'
         }
     ))
-    FPO = forms.CharField(widget=forms.TextInput(
+    
+    FPO = forms.ModelChoiceField(FPO.objects)
+    """,widget=forms.TextInput(
         attrs={
             'class': 'form-control',
             'placeholder': 'Enter the fpo registration ID...'
         }
-    ))
+    ))"""
     res=forms.FileField(widget=forms.FileInput(
         attrs={
         'class': 'form-control',
@@ -54,4 +56,4 @@ class ProductForm(forms.ModelForm):
     
     class Meta:
         model = fpoproduct
-        fields = ('quantity','description','FPO','res','productname','price','dateto','datefrom')
+        fields = ('productname','description','FPO','quantity','price','dateto','datefrom','res')

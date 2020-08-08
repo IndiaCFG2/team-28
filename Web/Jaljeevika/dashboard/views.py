@@ -1,5 +1,5 @@
-from django.shortcuts import render
-from .models import fpoproduct
+from django.shortcuts import render,redirect
+from .models import fpoproduct,FPO
 # Create your views here.
 from .forms import (
     ProductForm
@@ -8,14 +8,22 @@ from .forms import (
 	
 def marketview(request):
 	products = fpoproduct.objects.all().order_by('-created')
-	#,{'products':products}
-	return render(request,'marketview.html')
+	fpos=[]
+	for i in products:
+		print(i,FPO.objects.filter(fid__exact=i.FPO))
+		print(i.FPO.fponame)
+		fpos.append(FPO.objects.filter(fid__exact=i.FPO))
+	l=len(products)
+	print(products)
+	print(fpos)
+	return render(request,'marketview.html',{'products':products,'fpos':fpos,'len':l})
 
 def home(request):
 	return render(request,'home.html')
 
 def fpodashboard(request):
-	return render(request,'fpodashboard.html')
+	fpos=FPO.objects.all()
+	return render(request,'fpodashboard.html',{'fpos':fpos})
 
 
 def knowledge(request):
@@ -41,11 +49,15 @@ def knowledge(request):
 
 def forminput(request):
 	if request.method == 'POST':
-		form = ProductForm(request.POST)
-
+		form = ProductForm(request.POST,request.FILES)
+		print(form)
+		print('hi')
 		if form.is_valid():
 			form.save()
+			print('bye')
 			return redirect(reverse('about'))
+	
+
 	else:
 		form = ProductForm()
 		args = {'form': form}

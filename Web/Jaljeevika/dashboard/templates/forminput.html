@@ -23,13 +23,15 @@ Forum
 
     </div>
 </div>
-<form method="post" enctype="multipart/form-data">
+<br>
+<div class="container form-control col-lg-6 col-sm-4">
+<form method="post"  enctype="multipart/form-data">
             {% csrf_token %}
             {{ form.as_p }}
             <br>
             <button type="submit">Submit</button>
         </form> 
-
+</div>
   {%endblock%}
 
 
