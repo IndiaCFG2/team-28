@@ -15,8 +15,13 @@ class FPO(models.Model):
 	registration_date=  models.DateField( default=datetime.date.today)
 	address=models.TextField()
 	crops=models.CharField(max_length=300, default='')
-	contact=models.CharField(max_length=300, default='')
+	contactname=models.CharField(max_length=300, default='')
+	contactseniority=models.CharField(max_length=300, default='')
+	phone=models.IntegerField(default=0)
+	email=models.EmailField(max_length=254)
 
+	def __str__(self):
+		return self.fid
 
 
 class ForumComment(models.Model):
@@ -36,11 +41,13 @@ class ForumComment(models.Model):
 
 class fpoproduct(models.Model):
 	productname=models.CharField(max_length=200, default='')
-	fponame=models.CharField(max_length=200, default='')
 	description=models.TextField()
-	timeline= models.DateField( default=datetime.date.today)
+	datefrom= models.DateField( default=datetime.date.today)
+	dateto=models.DateField( default=datetime.date.today)
 	quantity=models.CharField(max_length=200, default='')
 	res=models.FileField(upload_to='res_folder', blank=True)
 	price=models.IntegerField(default=0)
 	FPO= models.ForeignKey(FPO, on_delete=models.CASCADE,default='fid')
 	created = models.DateTimeField(auto_now_add=True)
+	def __str__(self):
+		return self.productname

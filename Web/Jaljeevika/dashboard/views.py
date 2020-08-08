@@ -1,7 +1,9 @@
 from django.shortcuts import render
 from .models import fpoproduct
 # Create your views here.
-
+from .forms import (
+    ProductForm
+)
 
 	
 def marketview(request):
@@ -37,6 +39,16 @@ def gallery(request):
 def knowledge(request):
 	return render(request,'knowledge.html')
 
+def forminput(request):
+	if request.method == 'POST':
+		form = ProductForm(request.POST)
 
+		if form.is_valid():
+			form.save()
+			return redirect(reverse('about'))
+	else:
+		form = ProductForm()
+		args = {'form': form}
+		return render(request, 'forminput.html', args)
 
 
