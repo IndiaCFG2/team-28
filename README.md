@@ -2,7 +2,6 @@
 <h2>Team 28 - Geeky Blinders</h2>
 <h3>NGO - <b>JALJEEVIKA</b></h3>
 <br>
-<br>
 <h4>Problem Statement:</h4>
 <p>
     An attractive and responsive UI web design to do the following:
