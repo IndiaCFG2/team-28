@@ -1,14 +1,16 @@
 {%extends 'base.html'%}
+{% load static %}
 {%block content %}
 
-<div class="block-31" style="position: relative;">
+
+
+ <div class="block-31" style="position: relative;">
     <div class="owl-carousel loop-block-31 ">
-        <div class="block-30 block-30-sm item" style="background-image: url('images/bg_2.jpg');"
-            data-stellar-background-ratio="0.5">
-            <div class="container">
-                <div class="row align-items-center justify-content-center">
-                    <div class="col-md-7 text-center">
-                        <h2 class="heading">About Us  :  Water for livelihood, Water for all</h2>
+      <div class="block-30 block-30-sm item" style="background-image: url('{% static 'images/image13.jpg' %}');" data-stellar-background-ratio="0.5">
+        <div class="container">
+          <div class="row align-items-center justify-content-center">
+            <div class="col-md-7 text-center">
+              <h2 class="heading">About Us  :  Water for livelihood, Water for all</h2>
                     </div>
                 </div>
             </div>
@@ -21,7 +23,7 @@
     <div class="container">
         <div class="row mb-5">
             <div class="col-md-12 mb-5">
-                <img src="images/image7.PNG" alt="Image placeholder" class="img-fluid">
+                <img src="{% static 'images/image7.PNG' %}" alt="Image placeholder" class="img-fluid">
             </div>
             <div class="col-md-6">
                 <p>Centre for Aquatic livelihood Jaljeevika is a registered not-for-profit organisation 
@@ -61,7 +63,7 @@
                 <div class="block-38 text-center">
                     <div class="block-38-img">
                         <div class="block-38-header">
-                            <img src="images/person1.PNG" alt="Image placeholder">
+                            <img src="{% static 'images/person1.PNG' %}" alt="Image placeholder">
                             <h3 class="block-38-heading">Neelkannth Mishra</h3>
                             <p class="block-38-subheading">CEO & Founder</p>
                         </div>
@@ -72,7 +74,7 @@
                 <div class="block-38 text-center">
                     <div class="block-38-img">
                         <div class="block-38-header">
-                            <img src="images/person2.PNG" alt="Image placeholder">
+                            <img src="{% static 'images/person2.PNG' %}" alt="Image placeholder">
                             <h3 class="block-38-heading">Ranjit Ambastha</h3>
                             <p class="block-38-subheading">Director & Founder</p>
                         </div>
@@ -83,7 +85,7 @@
                 <div class="block-38 text-center">
                     <div class="block-38-img">
                         <div class="block-38-header">
-                            <img src="images/person3.PNG" alt="Image placeholder">
+                            <img src="{% static 'images/person3.PNG' %}" alt="Image placeholder">
                             <h3 class="block-38-heading">Devanand Londhe</h3>
                             <p class="block-38-subheading">Director & Founder</p>
                         </div>
@@ -130,6 +132,7 @@
                     <div class="icon"><span class="flaticon-people"></span></div>
                     <div class="media-body">
                         <h3 class="heading">Our Mission</h3>
+                        <img src="{% static 'images/image12.PNG' %}" alt="Image placeholder">
                         <p>"Reduce vulnerability, build resilience and empower the community through strengthening aquatic-based livelihood opportunities."</p>
                         <p> Jaljeevika transforms lives by improving access to knowledge, institutions and markets
                              in the poorest communities to establish a water-based livelihood portfolio. 
@@ -143,7 +146,29 @@
                              increase production to the manifold and has the potential to create millions more employment 
                              in this sector.
                         </p>
-                        <img src="images/image8.PNG" alt="Image placeholder">
+                        <img src="{% static 'images/image8.PNG' %}" alt="Image placeholder">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="media block-6">
+                    <div class="icon"><span class="flaticon-people"></span></div>
+                    <div class="media-body">
+                        <h3 class="heading">What We Do</h3>
+                        <p>Jaljeevika works with socially and economically weaker section, small - marginal farmers and 
+                            socially marginalized groups through integrated livelihood approach to establish a culture of 
+                            collective value chain development across aquatic livelihood segment.</p>
+                        <p> Training small and seasonal pond owners, fish farmers through our AquaEDP model, building 
+                            the innovative, resilient blue economy, serving over 20,000 farming families across India.</p>
+                        <p>  Promoting women as farmers in the fisheries sector, in reducing their vulnerability 
+                            to livelihood risk, ensuring food and nutritional security; covering 4000+ women fish 
+                            farmers and fish vendors.</p>
+                        <p>  Facilitating micro enterprise through the utilisation of small and seasonal ponds, 
+                            technology transfer to erect cages using local materials in reservoirs and low-cost recirculatory 
+                            system to establish ecosystem-based, covering 700+ fisherfolk.</p>
+                        <p>  Building collective process and integrate institutional governance models to cultivate business 
+                            acumen among fisheries collectives, covering 130+ fisheries cooperatives and groups.
+                        </p>
                     </div>
                 </div>
             </div>
