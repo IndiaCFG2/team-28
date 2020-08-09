@@ -13,81 +13,91 @@ Forum
 
 
 {% block content %}
-<div class="block-31" style="position: relative;">
-  <div class="owl-carousel loop-block-31 ">
-    <div class="block-30 block-30-sm item" style="background-image: url('{% static 'images/image13.jpg' %}');"
-      data-stellar-background-ratio="0.5">
-      <div class="container">
-        <div class="row align-items-center justify-content-center">
-          <div class="col-md-7 text-center">
-            <h2 class="heading">Have a Discussion</h2>
+  <div class="block-31" style="position: relative;">
+    <div class="owl-carousel loop-block-31 ">
+      <div class="block-30 block-30-sm item" style="background-image: url('{% static 'images/image13.jpg' %}');" data-stellar-background-ratio="0.5">
+        <div class="container">
+          <div class="row align-items-center justify-content-center">
+            <div class="col-md-7 text-center">
+              <h2 class="heading">Find the Interesting Images of Our Work</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+
+
+
+<div class="container">
+      <h1>Forum</h1>
+      <form action="{% url 'forum' %}" method="post">
+        {% csrf_token %}
+        <h3>Enter Name</h3>
+        <div class="row">
+          <div class="col-6">
+            <input class="form-control " type="text" name="username" value="Anonymous">
+          </div>           
+        <div class="row">
+            <h3>Choose a FPO:</h3>
+            {% for i in fpos %}
+            <select name="chose_fpo">
+              <option value={{i.fid}}>{{i.fponame}}</option>
+            </select>
+            {% endfor %}
+          </div>      
+        </div>
+            
+        
+        <h3>Query</h3>
+        <input type="hidden" name="Parentsno" value="None">
+        <div class="row"> 
+          <div class="col-6">
+            <input class="form-control" type="text" name="comment" required>
+          </div>
+          <div class="col-6">
+            <button class="btn btn-primary" value="POST">POST A QUERY</button>
+          </div>
+        </div>        
+        
+    </form>
+    <div class="row">
+    <div class="col-2"></div>
+    </div>
+    <button class="btn btn-primary" value="POST">ALL QUERIES</button>
+      {% for comment1 in comments %}
+        <div class="row">
+          <div class="col-8">          
+            {% if not comment1.parent %} 
+              <h3>{{comment1.comment}}</h3>
+            {% endif %}
           </div>
         </div>
-      </div>
-    </div>
-
-  </div>
-</div>
-
-
-
-<div class="container" style="border: solid black 1px; border-radius: 2%; padding: 3%; margin: 10px; width: 90%;">
-  <h1>Forum</h1>
-  <form action="{% url 'forum' %}" method="post">
-    {% csrf_token %}
-    <h2>Enter Name</h2>
-    <div class="row">
-      <div class="col-6">
-        <input class="form-control " type="text" name="username" value="Anonymous">
-      </div>
-      <div>
-        <h2>Choose a FPO:</h2>
-        {% for i in fpos %}
-        <select name="chose_fpo">
-          <option value={{i.fid}}>{{i.name}}</option>
-        </select>
-        {% endfor %}
-      </div>
-
-    </div>
-
-    <h3>Query</h3>
-    <input type="hidden" name="Parentsno" value="None">
-    <div class="row">
-      <div class="col-6">
-        <input class="form-control" type="text" name="comment" required>
-      </div>
-      <div class="col-6">
-        <button class="btn btn-primary" value="POST">POST</button>
-      </div>
-    </div>
-
-  </form>
-  {% for comment1 in comments %}
-  {% if not comment1.parent %}
-  <h2>{{comment1.comment}}</h2>
-  {% endif %}
-
-  {% for reply in replies|get_val:comment1.sno %}
-  <p>{{reply}}</p>
-  {% endfor %}
-  {% if not comment1.parent %}
-  <form method="post">
-    {% csrf_token %}
-    <input type="hidden" name="Parentsno" value="{{comment1.sno}}">
-    <input type="hidden" name="fpoNo" value="{{comment1.fpo}}">
-    <input type="hidden" name="username" value="{{comment1.username}}">
-    <input class="form-control" type="text" name="reply" value="">
-    <button class="btn btn-primary" value="REPLY">REPLY</button>
-  </form>
-  {% endif %}
-  {% endfor %}
-</div>
-
-
-
+          <div class="row">
+            <div class="col-8">
+            <i class="fas fa-bars"></i>
+              {% for reply in replies|get_val:comment1.sno %}
+                  <p>{{reply}}</p>
+              {% endfor %}
+              {% if not comment1.parent %} 
+              <form method="post">
+                  {% csrf_token %}
+                  <input type="hidden" name="Parentsno" value="{{comment1.sno}}">
+                  <input type="hidden" name="fpoNo" value="{{comment1.fpo}}">
+                  <input type="hidden" name="username" value="{{comment1.username}}">
+                  <input class="form-control" type="text" name="reply" value="">
+                  <button class="btn btn-primary" value="REPLY">REPLY</button>
+              </form>
+              {% endif %}
+            </div>
+          </div>          
+    {% endfor %}
 
 </div>
 
+  {%endblock%}
 
-{%endblock%}
+

@@ -1,5 +1,7 @@
 from django.shortcuts import render,redirect
 from .models import fpoproduct,FPO,ForumComment
+import smtplib
+from django.http import HttpResponseRedirect
 # Create your views here.
 from .forms import (
     ProductForm
@@ -33,6 +35,21 @@ def knowledge(request):
 	return render(request,'knowledge.html')
 
 def contact(request):
+	if (request.method)=="POST":
+			mailto =request.POST['email']
+			name=request.POST['name']
+			subject=request.POST['subject']
+			msg=request.POST['message']
+			mailServer = smtplib.SMTP('smtp.gmail.com' , 587)
+			mailServer.starttls()
+			gmailaddress='cfgteam28@gmail.com'
+			gmailpassword=''
+			mailServer.login(gmailaddress , gmailpassword)
+			mailServer.sendmail(gmailaddress, mailto , msg)
+			mailServer.quit()
+			return HttpResponseRedirect(request.path_info)
+	else:
+		return render(request,'contact-us.html')
 	return render(request,'contact-us.html')
 
 def about(request):
@@ -49,9 +66,9 @@ def forminput(request):
 	if request.method == 'POST':
 		form = ProductForm(request.POST,request.FILES)
 		if form.is_valid():
+			print(form)
 			form.save()
-			return redirect(reverse('about'))
-	
+			return redirect('about')
 
 	else:
 		form = ProductForm()
@@ -61,16 +78,10 @@ def forminput(request):
 
 def forum(request):
 	fpos=FPO.objects.all()
-	l=[]
-	l1=[]
 	form={}
-	for i in fpos:
-		l.append(i.fponame)
-		l1.append(i.fid)
 	parents=[]
 	if request.method=='POST':
 		comments=ForumComment.objects.all()
-		print(comments)
 		replies={}
 		for oneCom in comments:            
 			print(oneCom)
@@ -89,6 +100,7 @@ def forum(request):
 			form={'comment':comment,'username':username,'fpo':fpo}
 		else:
 			fpId=request.POST.get("fpoNo")
+			print(fpId)
 			fpo=FPO.objects.get(fid=fpId)
 			parentComment=ForumComment.objects.get(sno=parent)
 			comment=request.POST.get("reply")
@@ -101,7 +113,7 @@ def forum(request):
 	for oneCom in comments:            
 		print(oneCom)
 		if oneCom.parent!=None:
-			replies[oneCom.parent.sno].append(oneCom.comment+' by '+oneCom.user)
+			replies[oneCom.parent.sno].append(oneCom.comment)
 		else:
 			replies[oneCom.sno]=[]
 	return render(request, 'forum.html',{'fpos':fpos,'comments':comments,'replies':replies,'parents':parents})

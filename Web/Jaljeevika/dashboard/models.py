@@ -25,13 +25,12 @@ class FPO(models.Model):
 
 
 class ForumComment(models.Model):
+    sno = models.AutoField(primary_key=True)
     comment = models.TextField()
     user = models.TextField(default="Anonymous")
-    #include fpo model
-    FPO = models.ForeignKey(FPO, on_delete=models.CASCADE)
-    parent = models.ForeignKey('self', on_delete=models.CASCADE,default='fid')
+    fpo = models.ForeignKey(FPO,null=True,on_delete=models.CASCADE,blank=True,to_field="fid")
+    parent = models.ForeignKey('self', on_delete=models.CASCADE,null=True,blank=True,to_field="sno")
     timestamp = models.DateTimeField(auto_now_add=True)
-
 
     def __str__(self):
         return self.comment
