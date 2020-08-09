@@ -1,10 +1,14 @@
 {% extends 'base.html'%}
 {% load static %}
+{% load get_dict %}
+
 {%block title%}
 
 Forum
 
 {%endblock%}
+
+
 
 
 
@@ -22,6 +26,64 @@ Forum
         </div>
 
     </div>
+</div>
+
+
+
+
+
+
+      <h1>Forum</h1>
+      <form action="{% url 'forum' %}" method="post">
+        {% csrf_token %}
+        <h3>Enter Name</h3>
+        <div class="row">
+          <div class="col-6">
+            <input class="form-control " type="text" name="username" value="Anonymous">
+          </div>
+          <div>
+            <h3>Choose a FPO:</h3>
+            {% for i in fpos %}
+            <select name="chose_fpo">
+              <option value={{i.fid}}>{{i.name}}</option>
+            </select>
+            {% endfor %}
+          </div>            
+        
+        </div>
+        
+        <h3>Query</h3>
+        <input type="hidden" name="Parentsno" value="None">
+        <div class="row"> 
+          <div class="col-6">
+            <input class="form-control" type="text" name="comment" required>
+          </div>
+          <div class="col-6">
+            <button class="btn btn-primary" value="POST">POST</button>
+          </div>
+        </div>        
+        
+    </form>
+      {% for comment1 in comments %}
+          {% if not comment1.parent %} 
+            <h2>{{comment1.comment}}</h2>
+          {% endif %}
+            
+              {% for reply in replies|get_val:comment1.sno %}
+                  <p>{{reply}}</p>
+              {% endfor %}
+          {% if not comment1.parent %} 
+        <form method="post">
+            {% csrf_token %}
+            <input type="hidden" name="Parentsno" value="{{comment1.sno}}">
+            <input type="hidden" name="fpoNo" value="{{comment1.fpo}}">
+            <input type="hidden" name="username" value="{{comment1.username}}">
+            <input class="form-control" type="text" name="reply" value="">
+            <button class="btn btn-primary" value="REPLY">REPLY</button>
+        </form>
+         {% endif %}
+    {% endfor %}
+
 </div>
 
 

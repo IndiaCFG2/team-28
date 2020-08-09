@@ -1,19 +1,23 @@
 from django.shortcuts import render,redirect
-from .models import fpoproduct,FPO
+from .models import fpoproduct,FPO,ForumComment
 # Create your views here.
 from .forms import (
     ProductForm
 )
+from .templatetags import get_dict
 
-	
+
+    	
 def marketview(request):
-
 	products = fpoproduct.objects.all().order_by('-created')
-	
 	return render(request,'marketview.html',{'products':products})
+
+
 
 def home(request):
 	return render(request,'home.html')
+
+
 
 def fpodashboard(request):
 	fpos=FPO.objects.all()
@@ -29,12 +33,7 @@ def knowledge(request):
 	return render(request,'knowledge.html')
 
 def contact(request):
-	return render(request,'contact.html')
-
-
-def forum(request):
-	return render(request,'forum.html')
-
+	return render(request,'contact-us.html')
 
 def about(request):
 	return render(request,'about.html')
@@ -58,5 +57,55 @@ def forminput(request):
 		form = ProductForm()
 		args = {'form': form}
 		return render(request, 'forminput.html', args)
+
+
+def forum(request):
+	fpos=FPO.objects.all()
+	l=[]
+	l1=[]
+	form={}
+	for i in fpos:
+		l.append(i.fponame)
+		l1.append(i.fid)
+	parents=[]
+	if request.method=='POST':
+		comments=ForumComment.objects.all()
+		print(comments)
+		replies={}
+		for oneCom in comments:            
+			print(oneCom)
+			if oneCom.parent!=None:
+				replies[oneCom.parent.sno].append(oneCom.comment)
+			else:
+				replies[oneCom.sno]=[]
+		parent = request.POST.get("Parentsno")
+		comment = request.POST.get('comment')
+		username = request.POST.get('username')
+		if parent=='None':
+			parents.append(parent)
+			fpoFid = request.POST.get("chose_fpo")
+			fpo=FPO.objects.get(fid=fpoFid)
+			comment=ForumComment(comment=comment,user=username,fpo=fpo)
+			form={'comment':comment,'username':username,'fpo':fpo}
+		else:
+			fpId=request.POST.get("fpoNo")
+			fpo=FPO.objects.get(fid=fpId)
+			parentComment=ForumComment.objects.get(sno=parent)
+			comment=request.POST.get("reply")
+			username=request.POST.get("username")
+			comment = ForumComment(comment=comment, user=username, fpo=fpo,parent=parentComment)
+		comment.save()
+	comments=ForumComment.objects.all()
+	print(comments)
+	replies={}
+	for oneCom in comments:            
+		print(oneCom)
+		if oneCom.parent!=None:
+			replies[oneCom.parent.sno].append(oneCom.comment+' by '+oneCom.user)
+		else:
+			replies[oneCom.sno]=[]
+	return render(request, 'forum.html',{'fpos':fpos,'comments':comments,'replies':replies,'parents':parents})
+
+
 
 
