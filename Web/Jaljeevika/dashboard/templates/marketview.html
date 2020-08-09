@@ -6,8 +6,8 @@ Products page
 
 {%endblock%}
 
-{%block content%}
 
+{%block content%}
  <div class="block-31" style="position: relative;">
     <div class="owl-carousel loop-block-31 ">
       <div class="block-30 block-30-sm item" style="background-image: url('images/bg_2.jpg');" data-stellar-background-ratio="0.5">
@@ -23,20 +23,20 @@ Products page
     </div>
 </div>
 <br>
-<div class="container  col-lg-12 col-sm-4">
+<div class="container row col-lg-12 col-sm-4">
 {% for i in products %}
-<div class="card" >
+<div class="card col-lg-6" >
   <img  class="card-img-top" src="{{ i.res.url }}" alt="Card image">
   
   <div class="card-body">
 
-    <h4>Product Name:</h4><h5 class="card-title">{{ i.productname }}</h5>
-    <h4>Product Description:</h4><h5 class="card-text">{{ i.description }}</h5>
-    <h4>Product quantity:</h4><h5 class="card-text">{{ i.quantity }}</h5>
-    <h4>Product price:</h4><h5 class="card-text">{{ i.price }}</h5>
-    <h4>FPO Name:</4><h5 class="card-text">{{ i.FPO.fponame }}</h5>
-    <h4>FPO mobile:</h4><h5 class="card-text">{{ i.FPO.phone }}</h5>
-    <h4>FPO email:</h4><h5 class="card-text">{{ i.FPO.email }}</h5>
+    <h5>Product Name:</h5><p class="card-title">{{ i.productname }}</p>
+    <h5>Product Description:</h5><p class="card-text">{{ i.description }}</p>
+    <h5>Product quantity:</h5><p class="card-text">{{ i.quantity }}</p>
+    <h5>Product price:</h5><p class="card-text">{{ i.price }}</p>
+    <h5>FPO Name:</h5><p class="card-text">{{ i.FPO.fponame }}</p>
+    <h5>FPO mobile:</h5><p class="card-text">{{ i.FPO.phone }}</p>
+    <h5>FPO email:</h5><p class="card-text">{{ i.FPO.email }}</p>
     
 
 

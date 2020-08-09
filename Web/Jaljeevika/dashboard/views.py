@@ -7,22 +7,21 @@ from .forms import (
 
 	
 def marketview(request):
+
 	products = fpoproduct.objects.all().order_by('-created')
-	fpos=[]
-	for i in products:
-		print(i,FPO.objects.filter(fid__exact=i.FPO))
-		print(i.FPO.fponame)
-		fpos.append(FPO.objects.filter(fid__exact=i.FPO))
-	l=len(products)
-	print(products)
-	print(fpos)
-	return render(request,'marketview.html',{'products':products,'fpos':fpos,'len':l})
+	
+	return render(request,'marketview.html',{'products':products})
 
 def home(request):
 	return render(request,'home.html')
 
 def fpodashboard(request):
 	fpos=FPO.objects.all()
+	if request.method=='POST':
+		searchVal=request.POST.get('search')
+		category=request.POST.get('categoryVal')
+		print(searchVal)
+		fpos=FPO.objects.filter(statename__exact=searchVal)
 	return render(request,'fpodashboard.html',{'fpos':fpos})
 
 
@@ -50,11 +49,8 @@ def knowledge(request):
 def forminput(request):
 	if request.method == 'POST':
 		form = ProductForm(request.POST,request.FILES)
-		print(form)
-		print('hi')
 		if form.is_valid():
 			form.save()
-			print('bye')
 			return redirect(reverse('about'))
 	
 

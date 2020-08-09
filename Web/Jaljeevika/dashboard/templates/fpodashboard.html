@@ -6,7 +6,26 @@ FPO Page
 
 {%endblock%}
 
-
+{%block nav%}
+<div class="">
+    <form method="post" action="{%url 'fpodashboard'%}">
+     {% csrf_token %}
+      <!--  <div class="col-4">
+                <select name="categoryVal" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <option  class="dropdown-item" value="location">Location</option>
+                    <option  class="dropdown-item" value="">B</option>
+                    <option  class="dropdown-item" value="">C</option>
+                </select>
+        </div>  -->
+        <div class="">
+            <input type="text" name="search" value="" class="form-control">
+        </div>
+        <div class="col-4">
+            <button type="submit" class="btn btn-primary">Search</button>
+        </div>
+    </form>
+</div>
+{%endblock%}
 
 {% block content %}
   <div class="block-31" style="position: relative;">
@@ -25,6 +44,20 @@ FPO Page
 </div>
 <br>
 <div class="container">
+	{% for i in fpos %}	
+	<ul class="list-group">
+  <li class="list-group-item active">{{i.fponame}}</li>
+  <li class="list-group-item">{{i.resource}}</li>
+  <li class="list-group-item">{{i.programme}}</li>
+  <li class="list-group-item">{{i.crops}}</li>
+  <li class="list-group-item">{{i.contactname}}</li>
+  <li class="list-group-item">{{i.email}}</li>
+  <li class="list-group-item">{{i.phone}}</li>
+  <li class="list-group-item">{{i.statename}}</li>
+</ul>
+<br>
+	{% endfor %}
+	
 </div>
 
   {%endblock%}
