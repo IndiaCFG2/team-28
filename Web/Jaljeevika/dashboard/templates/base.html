@@ -1,54 +1,54 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>Givig - Non-profit Free Bootstrap 4 Template by Colorlib</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>{%block title%}{%endblock%}</title>
-    {%block head%}{%endblock%}
-    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500|Gaegu:700" rel="stylesheet">
-    <link rel="stylesheet" href="{% static 'css/open-iconic-bootstrap.min.css' %}">
-    <link rel="stylesheet" href="{% static 'css/open-iconic-bootstrap.min.css' %}">
-    <link rel="stylesheet" href="{% static 'css/open-iconic-bootstrap.min.css' %}">
-    <link rel="stylesheet" href="{% static 'css/animate.css' %}">
-    <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
-    <link rel="stylesheet" href="{% static 'css/owl.theme.default.min.css' %}">
-    <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}">
-    <link rel="stylesheet" href="{% static 'css/aos.css' %}">
-    <link rel="stylesheet" href="{% static 'css/ionicons.min.css' %}">
-    <link rel="stylesheet" href="{% static 'css/bootstrap-datepicker.css' %}">
-    <link rel="stylesheet" href="{% static 'css/jquery.timepicker.css' %}">
-    <link rel="stylesheet" href="{% static 'css/flaticon.css' %}">
-    <link rel="stylesheet" href="{% static 'css/icomoon.css' %}">
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-  </head>
-  <body>
-    
+
+<head>
+  <title>Jaljeevika</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>{%block title%}{%endblock%}</title>
+  <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500|Gaegu:700" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'css/open-iconic-bootstrap.min.css' %}">
+  <link rel="stylesheet" href="{% static 'css/open-iconic-bootstrap.min.css' %}">
+  <link rel="stylesheet" href="{% static 'css/open-iconic-bootstrap.min.css' %}">
+  <link rel="stylesheet" href="{% static 'css/animate.css' %}">
+  <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
+  <link rel="stylesheet" href="{% static 'css/owl.theme.default.min.css' %}">
+  <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}">
+  <link rel="stylesheet" href="{% static 'css/aos.css' %}">
+  <link rel="stylesheet" href="{% static 'css/ionicons.min.css' %}">
+  <link rel="stylesheet" href="{% static 'css/bootstrap-datepicker.css' %}">
+  <link rel="stylesheet" href="{% static 'css/jquery.timepicker.css' %}">
+  <link rel="stylesheet" href="{% static 'css/flaticon.css' %}">
+  <link rel="stylesheet" href="{% static 'css/icomoon.css' %}">
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+
   <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
     <div class="container">
-      <a class="navbar-brand" href="index.html">Giving</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+      <a class="navbar-brand" href="index.html">
+        <img src="{% static 'images/jaljeevika.PNG' %}" alt="">
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
+        aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="oi oi-menu"></span> Menu
       </button>
 
       <div class="collapse navbar-collapse" id="ftco-nav">
         <ul class="navbar-nav ml-auto">
 
-          <li class="nav-item "><a href="{%url 'about'%}" class="nav-link">Home</a></li>
+          <li class="nav-item"><a href="{%url 'about'%}" class="nav-link">Home</a></li>
           <li class="nav-item "><a href="{%url 'marketview'%}" class="nav-link">Products</a></li>
-          
+
           <li class="nav-item"><a href="{%url 'fpodashboard'%}" class="nav-link">FPO</a></li>
           <li class="nav-item"><a href="{%url 'knowledge'%}" class="nav-link">KnowledgeHub</a></li>
           <li class="nav-item"><a href="{%url 'gallery'%}" class="nav-link">Gallery</a></li>
           <li class="nav-item"><a href="{%url 'forum'%}" class="nav-link">Forum</a></li>
-
           <li class="nav-item"><a href="{%url 'contact'%}" class="nav-link">Contact Us</a></li>
 
-          {%block nav%}{%endblock%}
-
         </ul>
-        <a class="btn btn-primary" href="{%url 'forminput'%}" role="button">Add Product</a>
       </div>
     </div>
   </nav>
@@ -69,8 +69,8 @@
     </div>
   </div>-->
   {% block content%}
-{% endblock%}
-<!--
+  {% endblock%}
+  <!--
   <div class="site-section">
     <div class="container">
       <div class="row">
@@ -110,10 +110,11 @@
 
       </div>
     </div>
-  </div> --><!-- .site-section -->
+  </div> -->
+  <!-- .site-section -->
 
 
-<!--
+  <!--
   <div class="featured-donate overlay-color" style="background-image: url({% static 'images/bg_2.jpg' %});">
     
     <div class="container">
@@ -136,8 +137,9 @@
       </div>
     </div>
 
-  </div> --> <!-- .featured-donate -->
-<!--
+  </div> -->
+  <!-- .featured-donate -->
+  <!--
   <div class="site-section fund-raisers">
     <div class="container">
       <div class="row mb-5">
@@ -236,9 +238,10 @@
         </div>
       </div>
     </div>
-  </div> --><!-- .section -->
+  </div> -->
+  <!-- .section -->
 
-<!--
+  <!--
   <div class="site-section fund-raisers">
     <div class="container">
       <div class="row mb-5">
@@ -309,8 +312,9 @@
         </div>
       </div>
     </div>
-  </div> --><!-- .section -->
-<!--
+  </div> -->
+  <!-- .section -->
+  <!--
   <div class="featured-section overlay-color-2" style="background-image: url('images/bg_3.jpg');">
     
     <div class="container">
@@ -332,8 +336,9 @@
       </div>
     </div>
 
-  </div> --><!-- .featured-donate -->
-<!--
+  </div> -->
+  <!-- .featured-donate -->
+  <!--
   <div class="site-section bg-light">
     <div class="container">
       <div class="row mb-5">
@@ -378,83 +383,43 @@
         </div>
       </div>
     </div>
-  </div>--> <!-- .section -->
-<!--
-  
+  </div>-->
+  <!-- .section -->
+
+
   <footer class="footer">
     <div class="container">
       <div class="row mb-5">
-        <div class="col-md-6 col-lg-4">
+        <div class="col-md-6 col-lg-6">
           <h3 class="heading-section">About Us</h3>
-          <p class="mb-5">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
-          <p><a href="#" class="btn btn-primary px-4 py-3">Join Volunteer</a></p>
+          <p class="mb-5">We are committed to the promotion of aquatic livelihood through better resource management,
+            institution building, technology transfer, access to credit, inputs, markets and support in developing end
+            to end value chains towards enhancing livelihood opportunities, securing food and nutritional security in
+            rural India.It’s an effort to bring all the stakeholders, CBO’s, local organizations, technical experts,
+            policy analysis and advocacy groups, natural resource management and livelihood supporting agencies together
+            to bring best values of institution development towards the promotion of small scale fishery and aquatic
+            livelihood. </p>
         </div>
-        <div class="col-md-6 col-lg-4">
-          <h3 class="heading-section">Blog</h3>
-          <div class="block-21 d-flex mb-4">
-            <figure class="mr-3">
-              <img src="images/img_1.jpg" alt="" class="img-fluid">
-            </figure>
-            <div class="text">
-              <h3 class="heading"><a href="#">Give Meal A Day</a></h3>
-              <div class="meta">
-                <div><a href="#"><span class="icon-calendar"></span> July 29, 2018</a></div>
-                <div><a href="#"><span class="icon-person"></span> Admin</a></div>
-                <div><a href="#"><span class="icon-chat"></span> 19</a></div>
-              </div>
-            </div>
-          </div>
 
-          <div class="block-21 d-flex mb-4">
-            <figure class="mr-3">
-              <img src="images/img_2.jpg" alt="" class="img-fluid">
-            </figure>
-            <div class="text">
-              <h3 class="heading"><a href="#">Free Education For African Children</a></h3>
-              <div class="meta">
-                <div><a href="#"><span class="icon-calendar"></span> July 29, 2018</a></div>
-                <div><a href="#"><span class="icon-person"></span> Admin</a></div>
-                <div><a href="#"><span class="icon-chat"></span> 19</a></div>
-              </div>
-            </div>
-          </div>
-
-          <div class="block-21 d-flex mb-4">
-            <figure class="mr-3">
-              <img src="images/img_4.jpg" alt="" class="img-fluid">
-            </figure>
-            <div class="text">
-              <h3 class="heading"><a href="#">Join As A Volunteers</a></h3>
-              <div class="meta">
-                <div><a href="#"><span class="icon-calendar"></span> July 29, 2018</a></div>
-                <div><a href="#"><span class="icon-person"></span> Admin</a></div>
-                <div><a href="#"><span class="icon-chat"></span> 19</a></div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-4">
+        <div class="col-md-6 col-lg-6">
           <div class="block-23">
             <h3 class="heading-section">Contact Info</h3>
-              <ul>
-                <li><span class="icon icon-map-marker"></span><span class="text">203 Fake St. Mountain View, San Francisco, California, USA</span></li>
-                <li><a href="#"><span class="icon icon-phone"></span><span class="text">+2 392 3929 210</span></a></li>
-                <li><a href="#"><span class="icon icon-envelope"></span><span class="text">info@yourdomain.com</span></a></li>
-                <li><span class="icon icon-clock-o"></span><span class="text">Monday &mdash; Friday 8:00am - 5:00pm</span></li>
-              </ul>
-            </div>
+            <ul>
+              <li><span class="icon icon-map-marker"></span><span class="text">Centre for aquatic livelihood jaljeevika <br>
+                976, A/p Hingangaon Tal. <br>
+                K. Mahankal, Sangli M.H. 416405 <br>
+                M.H. 416405, <br>
+                India</span></li>
+              <li><a href="#"><span class="icon icon-phone"></span><span class="text">+91 74997 79629</span></a></li>
+              <li><a href="#"><span class="icon icon-envelope"></span><span class="text">info@jaljeevika.org</span></a>
+              </li>
+              <li><span class="icon icon-clock-o"></span><span class="text">Monday &mdash; Friday 8:00am - 5:00pm</span>
+              </li>
+            </ul>
+          </div>
         </div>
-        
-        -->
-      </div>
-      <div class="row pt-5">
-        <div class="col-md-12 text-center">
-          <p>
-            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-            Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank" class="text-primary">Colorlib</a>
-            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-          </p>
-        </div>
+
+
       </div>
     </div>
   </footer>
@@ -471,12 +436,14 @@
   <script src="{% static 'js/owl.carousel.min.js' %}"></script>
   <script src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>
   <script src="{% static 'js/bootstrap-datepicker.js' %}"></script>
-  
+
   <script src="{% static 'js/aos.js' %}"></script>
   <script src="{% static 'js/jquery.animateNumber.min.js' %}"></script>
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+  <script
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
   <script src="{% static 'js/google-map.js' %}"></script>
   <script src="{% static 'js/main.js' %}"></script>
-    
-  </body>
+
+</body>
+
 </html>
