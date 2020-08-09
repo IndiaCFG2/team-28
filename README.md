@@ -21,7 +21,7 @@
 </p>
 
 <p>
-    Our Solution:
+    <b>Our Solution:</b>
 <ul>
     <li>
         Cross platform interactive web application
@@ -36,8 +36,7 @@
         Knowledge platform where anyone can share and learn the content relating to the FPO and the farmers
     </li>
     <li>
-
-        Training in latest technologies through videos, documents, illustrations,etc.
+        Training in latest technologies through videos, documents, illustrations,etc. 
     </li>
 </ul>
 </p>
