@@ -1,4 +1,4 @@
-# team-28
+
 <h2>Team 28 - Geeky Blinders</h2>
 <h3>NGO - <b>JALJEEVIKA</b></h3>
 <br>
